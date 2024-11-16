@@ -1,14 +1,14 @@
-import NotFound from '../404NotFound'
+import { notFound } from 'next/navigation'
 import getPageProps from './getPageData'
 
 export const revalidate = 10
 
-const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
-  const slug = (await params).slug
+const Page = async ({ params }: { params: { slug: string[] } }) => {
+  const { slug } = params
   const data = await getPageProps(slug)
 
   if (!data) {
-    return <NotFound />
+    notFound()
   }
 
   return (

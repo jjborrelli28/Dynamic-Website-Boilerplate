@@ -21,10 +21,20 @@ type PageEntrySkeleton = {
   fields: PageFields
 }
 
-const getPageData = async (slug: string, preview = false) => {
+const parseSlug = (slug: string[], preview: boolean) => {
+  if (!slug || (slug.length === 1 && slug[0] === 'preview')) return 'homepage'
+
+  if (preview) return slug.slice(0, -1).join('/')
+
+  return slug.join('/')
+}
+
+const getPageData = async (slug: string[]) => {
+  const preview = slug?.[slug?.length - 1] === 'preview'
+  const parsedSlug = parseSlug(slug, preview)
   const response = await client(preview).getEntries<PageEntrySkeleton>({
     content_type: 'page',
-    'fields.slug': slug ?? 'homepage',
+    'fields.slug': parsedSlug,
     include: 3,
   })
 
