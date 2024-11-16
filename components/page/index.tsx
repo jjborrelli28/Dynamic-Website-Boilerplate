@@ -1,10 +1,14 @@
 import { notFound } from 'next/navigation'
 import getPageProps from './getPageData'
 
+type PageProps = {
+  params: Promise<{ slug: string[] }>
+}
+
 export const revalidate = 10
 
-const Page = async ({ params }: { params: { slug: string[] } }) => {
-  const { slug } = params
+const Page = async ({ params }: PageProps) => {
+  const { slug } = await params
   const data = await getPageProps(slug)
 
   if (!data) {
