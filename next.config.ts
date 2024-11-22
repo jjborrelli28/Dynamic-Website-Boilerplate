@@ -1,7 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  reactStrictMode: true,
+
+  images: {
+    domains: ['images.ctfassets.net'],
+  },
+
+  /*  i18n: {
+    locales: ['en', 'es'],
+    defaultLocale: 'en',
+  }, */
+}
 
 export default nextConfig;
+

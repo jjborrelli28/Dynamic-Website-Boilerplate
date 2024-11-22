@@ -1,13 +1,24 @@
+import Media from '@/components/Media'
+import { Document } from '@contentful/rich-text-types'
+import { Asset } from 'contentful'
+
 export type HeroProps = {
   fields: {
     name: string
+    content: Document
+    media: Asset<'WITHOUT_UNRESOLVABLE_LINKS', string> | undefined
   }
 }
 
 const Hero = ({ fields }: HeroProps) => {
-  console.log(fields)
+  const { media } = fields
 
-  return <section>Hero</section>
+  return (
+    <section>
+      <Media fields={media?.fields} fill className="-z-10 object-cover" />
+      <div>Hero</div>
+    </section>
+  )
 }
 
 export default Hero

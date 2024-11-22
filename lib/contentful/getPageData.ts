@@ -34,6 +34,8 @@ export type HeroEntrySkeleton = {
   contentTypeId: 'hero'
   fields: {
     name: EntryFieldTypes.Text
+    content: EntryFieldTypes.RichText
+    media: EntryFieldTypes.AssetLink
   }
 }
 
@@ -41,6 +43,8 @@ export type SpotlightEntrySkeleton = {
   contentTypeId: 'spotlight'
   fields: {
     name: EntryFieldTypes.Text
+    content: EntryFieldTypes.RichText
+    media: EntryFieldTypes.AssetLink
   }
 }
 
