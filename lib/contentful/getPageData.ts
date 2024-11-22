@@ -67,7 +67,7 @@ const getPageData = async (slug: string[]) => {
       return null
     }
 
-    return pageData || null
+    return pageData
   } catch (error) {
     console.error(`Error fetching page data: ${error}`)
 
