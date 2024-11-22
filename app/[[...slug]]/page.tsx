@@ -1,3 +1,3 @@
-import Page from '@/components/page'
+import Page from '@/components/Page'
 
 export default Page

@@ -1,25 +1,18 @@
+import { Params } from '@/app/[[...slug]]/layout'
+import getPageData from '@/lib/contentful/getPageData'
 import { notFound } from 'next/navigation'
-import getPageProps from './getPageData'
-
-type PageProps = {
-  params: Promise<{ slug: string[] }>
-}
 
 export const revalidate = 10
 
-const Page = async ({ params }: PageProps) => {
+const Page = async ({ params }: { params: Params }) => {
   const { slug } = await params
-  const data = await getPageProps(slug)
+  const data = await getPageData(slug)
 
   if (!data) {
     notFound()
   }
 
-  return (
-    <div className="container mx-auto py-12">
-      <h1 className="text-3xl font-bold">{data.name}</h1>
-    </div>
-  )
+  return <div>Page path: {data.name}</div>
 }
 
 export default Page
