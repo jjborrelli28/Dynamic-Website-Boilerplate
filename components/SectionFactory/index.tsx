@@ -1,5 +1,4 @@
 import {
-  FooterEntrySkeleton,
   HeroEntrySkeleton,
   SpotlightEntrySkeleton,
 } from '@/lib/contentful/getPageData'
@@ -9,7 +8,6 @@ import SECTION_LIST from './Sections/SECTION_LIST'
 type Section =
   | Entry<HeroEntrySkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>
   | Entry<SpotlightEntrySkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>
-  | Entry<FooterEntrySkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>
   | undefined
 
 type SectionFactoryProps = {

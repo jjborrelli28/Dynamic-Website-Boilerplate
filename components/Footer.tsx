@@ -7,7 +7,7 @@ export type FooterProps = {
 const Footer = ({ fields }: FooterProps) => {
   console.log(fields)
 
-  return <div>Footer</div>
+  return <footer>Footer</footer>
 }
 
 export default Footer

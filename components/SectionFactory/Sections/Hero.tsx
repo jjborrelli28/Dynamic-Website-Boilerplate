@@ -7,7 +7,7 @@ export type HeroProps = {
 const Hero = ({ fields }: HeroProps) => {
   console.log(fields)
 
-  return <div>Hero</div>
+  return <section>Hero</section>
 }
 
 export default Hero

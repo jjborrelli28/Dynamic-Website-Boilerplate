@@ -61,8 +61,8 @@ export type PageEntrySkeleton = {
     sections?: EntryFieldTypes.Array<
       | EntryFieldTypes.EntryLink<HeroEntrySkeleton>
       | EntryFieldTypes.EntryLink<SpotlightEntrySkeleton>
-      | EntryFieldTypes.EntryLink<FooterEntrySkeleton>
     >
+    footer?: EntryFieldTypes.EntryLink<FooterEntrySkeleton>
   }
 }
 

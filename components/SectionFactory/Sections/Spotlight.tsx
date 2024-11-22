@@ -7,7 +7,7 @@ export type SpotlightProps = {
 const Spotlight = ({ fields }: SpotlightProps) => {
   console.log(fields)
 
-  return <div>Spotlight</div>
+  return <section>Spotlight</section>
 }
 
 export default Spotlight
