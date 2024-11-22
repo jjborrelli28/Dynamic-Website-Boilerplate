@@ -1,6 +1,7 @@
 import { Params } from '@/app/[[...slug]]/layout'
 import getPageData from '@/lib/contentful/getPageData'
 import { notFound } from 'next/navigation'
+import SectionFactory from './SectionFactory'
 
 export const revalidate = 10
 
@@ -12,7 +13,7 @@ const Page = async ({ params }: { params: Params }) => {
     notFound()
   }
 
-  return <div>Page path: {data.name}</div>
+  return <SectionFactory sections={data.sections} />
 }
 
 export default Page

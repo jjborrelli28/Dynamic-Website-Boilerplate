@@ -1,17 +1,12 @@
 import Header from '@/components/Header'
 import getHeader from '@/lib/contentful/getHeader'
 import getMetadata from '@/lib/contentful/getMetadata'
-import { Metadata } from 'next'
 import { ReactNode } from 'react'
 import './../globals.css'
 
 export type Params = Promise<{ slug: string[] }>
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Params
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Params }) {
   const { slug } = await params
   const metadata = await getMetadata(slug)
 

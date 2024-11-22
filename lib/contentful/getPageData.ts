@@ -2,48 +2,68 @@ import parseSlug from '@/helpers/parseSlug'
 import { EntryFieldTypes } from 'contentful'
 import client from './client'
 
-type MetadataFields = {
-  title: EntryFieldTypes.Text
-  description: EntryFieldTypes.Text
-}
-
 type MetadataEntrySkeleton = {
   contentTypeId: 'metadata'
-  fields: MetadataFields
-}
-
-type CTAFields = {
-  name: EntryFieldTypes.Text[]
-  url: EntryFieldTypes.Text[]
-  icon: EntryFieldTypes.AssetLink
+  fields: {
+    title: EntryFieldTypes.Text
+    description: EntryFieldTypes.Text
+  }
 }
 
 export type CTAEntrySkeleton = {
   contentTypeId: 'cta'
-  fields: CTAFields
-}
-
-type HeaderFields = {
-  name: EntryFieldTypes.Text
-  logo: EntryFieldTypes.AssetLink
-  navigationLinks: EntryFieldTypes.EntryLink<CTAEntrySkeleton>[]
+  fields: {
+    name: EntryFieldTypes.Text
+    url: EntryFieldTypes.Text
+    icon?: EntryFieldTypes.AssetLink
+  }
 }
 
 type HeaderEntrySkeleton = {
   contentTypeId: 'header'
-  fields: HeaderFields
+  fields: {
+    name: EntryFieldTypes.Text
+    logo?: EntryFieldTypes.AssetLink
+    navigationLinks: EntryFieldTypes.Array<
+      EntryFieldTypes.EntryLink<CTAEntrySkeleton>
+    >
+  }
 }
 
-export type PageFields = {
-  name: EntryFieldTypes.Text
-  slug: EntryFieldTypes.Text
-  metadata?: EntryFieldTypes.EntryLink<MetadataEntrySkeleton>
-  header?: EntryFieldTypes.EntryLink<HeaderEntrySkeleton>
+export type HeroEntrySkeleton = {
+  contentTypeId: 'hero'
+  fields: {
+    name: EntryFieldTypes.Text
+  }
+}
+
+export type SpotlightEntrySkeleton = {
+  contentTypeId: 'spotlight'
+  fields: {
+    name: EntryFieldTypes.Text
+  }
+}
+
+export type FooterEntrySkeleton = {
+  contentTypeId: 'footer'
+  fields: {
+    name: EntryFieldTypes.Text
+  }
 }
 
 export type PageEntrySkeleton = {
   contentTypeId: 'page'
-  fields: PageFields
+  fields: {
+    name: EntryFieldTypes.Text
+    slug: EntryFieldTypes.Text
+    metadata?: EntryFieldTypes.EntryLink<MetadataEntrySkeleton>
+    header?: EntryFieldTypes.EntryLink<HeaderEntrySkeleton>
+    sections?: EntryFieldTypes.Array<
+      | EntryFieldTypes.EntryLink<HeroEntrySkeleton>
+      | EntryFieldTypes.EntryLink<SpotlightEntrySkeleton>
+      | EntryFieldTypes.EntryLink<FooterEntrySkeleton>
+    >
+  }
 }
 
 const getPageData = async (slug: string[]) => {

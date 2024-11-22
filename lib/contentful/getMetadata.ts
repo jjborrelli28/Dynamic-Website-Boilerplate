@@ -5,7 +5,7 @@ import { PageEntrySkeleton } from './getPageData'
 const defaultMetadata = {
   title: 'Next App',
   description:
-    'Next App created with Typescript, Tailwind and Contentful as CMS',
+    'Next.js application built with Typescript, Tailwind and Contentful as CMS',
 }
 
 const getMetadata = async (slug: string[]) => {
