@@ -14,7 +14,7 @@ const Hero = ({ fields }: HeroProps) => {
   const { media } = fields
 
   return (
-    <section>
+    <section className="min-h-screen">
       <Media fields={media?.fields} fill className="-z-10 object-cover" />
       <div>Hero</div>
     </section>

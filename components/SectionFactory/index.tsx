@@ -3,7 +3,7 @@ import {
   SpotlightEntrySkeleton,
 } from '@/lib/contentful/getPageData'
 import { Entry } from 'contentful'
-import SECTION_LIST from './Sections/SECTION_LIST'
+import dynamicSectionComponents from './dynamicSectionComponents'
 
 type Section =
   | Entry<HeroEntrySkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>
@@ -17,12 +17,12 @@ type SectionFactoryProps = {
 const SectionFactory = ({ sections }: SectionFactoryProps) => {
   if (!sections) return null
 
-  return sections.map((section: Section) => {
+  return sections.map((section, i) => {
     if (!section) return null
 
-    const Section = SECTION_LIST[section.sys.contentType.sys.id]
+    const Section = dynamicSectionComponents[section.sys.contentType.sys.id]
 
-    return <Section key={section.fields.name} fields={section.fields} />
+    return <Section key={i} fields={section.fields} />
   })
 }
 

@@ -1,18 +1,23 @@
-import Image, { ImageProps } from './Image'
-import Video, { VideoProps } from './Video'
+import Image, { ImageProps } from './components/Image'
+import Video, { VideoProps } from './components/Video'
 
-type MediaProps = ImageProps | VideoProps
+type MediaProps = Omit<ImageProps, 'alt'> | VideoProps
 
-const Media = ({ fields, ...props }: MediaProps) => {
-  const type = fields?.file?.contentType
+const Media = (props: MediaProps) => {
+  const type = props.fields?.file?.contentType
 
-  if (type?.startsWith('image')) {
-    return <Image fields={fields} alt={fields?.description ?? ''} {...props} />
-  } else if (type?.startsWith('video')) {
-    return <Video fields={fields} />
-  } else {
-    return null
-  }
+  if (!type) return null
+
+  return type?.startsWith('image') ? (
+    <Image
+      {...{
+        alt: props.fields?.description ?? '',
+        ...props,
+      }}
+    />
+  ) : type?.startsWith('video') ? (
+    <Video {...props} />
+  ) : null
 }
 
 export default Media

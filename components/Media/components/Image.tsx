@@ -1,22 +1,18 @@
 import { AssetFields } from 'contentful'
 import NextImage, { ImageProps as NextImageProps } from 'next/image'
 
-export type ImageProps = {
+export interface ImageProps extends Omit<NextImageProps, 'src'> {
   fields: AssetFields | undefined
-} & Omit<NextImageProps, 'src'>
+}
 
-const Image = ({ fields, ...props }: ImageProps) => {
+const Image = (props: ImageProps) => {
+  const { fields, ...restProps } = props
+
   const src = fields?.file?.url ? `https:${fields.file.url}` : undefined
 
   if (!src) return null
 
-  const imageProps = {
-    src,
-
-    ...props,
-  }
-
-  return <NextImage {...imageProps} />
+  return <NextImage {...{ src, ...restProps }} />
 }
 
 export default Image
