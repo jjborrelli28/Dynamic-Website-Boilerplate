@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic'
 import { ComponentType } from 'react'
-import { HeroProps } from './sections/Hero'
-import { SpotlightProps } from './sections/Spotlight'
+import { HeroProps } from './components/Hero'
+import { SpotlightProps } from './components/Spotlight'
 
 type DynamicSectionComponents = {
   hero: ComponentType<HeroProps>
@@ -9,8 +9,8 @@ type DynamicSectionComponents = {
 }
 
 const dynamicSectionComponents: DynamicSectionComponents = {
-  ['hero']: dynamic(() => import('./sections/Hero')),
-  ['spotlight']: dynamic(() => import('./sections/Spotlight')),
+  ['hero']: dynamic(() => import('./components/Hero')),
+  ['spotlight']: dynamic(() => import('./components/Spotlight')),
 }
 
 export default dynamicSectionComponents
