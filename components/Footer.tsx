@@ -7,7 +7,13 @@ export type FooterProps = {
 const Footer = ({ fields }: FooterProps) => {
   console.log(fields)
 
-  return <footer>Footer</footer>
+  return (
+    <footer className="h-[50vh] bg-blue-500">
+      <div className="px- container mx-auto pt-10">
+        <h2 className="text-5xl font-bold">{fields.name}</h2>
+      </div>
+    </footer>
+  )
 }
 
 export default Footer

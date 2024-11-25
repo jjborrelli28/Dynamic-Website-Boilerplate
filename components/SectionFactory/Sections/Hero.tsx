@@ -14,9 +14,11 @@ const Hero = ({ fields }: HeroProps) => {
   const { media } = fields
 
   return (
-    <section className="min-h-screen">
-      <Media fields={media?.fields} fill className="-z-10 object-cover" />
-      <div>Hero</div>
+    <section className="min-h-screen bg-red-500">
+      <div className="container mx-auto px-5 pt-16">
+        <Media fields={media?.fields} fill className="-z-10 object-cover" />
+        <h1 className="text-5xl font-bold">{fields.name}</h1>
+      </div>
     </section>
   )
 }
