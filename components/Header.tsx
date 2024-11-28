@@ -27,7 +27,7 @@ const Header = ({ fields }: HeaderProps) => {
         )}
       >
         {logo && (
-          <CTA href="/">
+          <CTA href="/" aria-label="Logo">
             <Media
               fields={logo.fields}
               height={logo.fields.file?.details.image?.height}

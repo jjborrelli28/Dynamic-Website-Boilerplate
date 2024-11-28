@@ -1,4 +1,5 @@
 import Media from '@/components/Media'
+import { RichText } from '@/components/RichText'
 import { Document } from '@contentful/rich-text-types'
 import { Asset } from 'contentful'
 
@@ -11,13 +12,13 @@ export type HeroProps = {
 }
 
 const Hero = ({ fields }: HeroProps) => {
-  const { media } = fields
+  const { content, media } = fields
 
   return (
     <section className="min-h-screen bg-blue-500">
-      <div className="container mx-auto px-5 pt-16">
+      <div className="container mx-auto px-5 py-16">
         <Media fields={media?.fields} fill className="-z-10 object-cover" />
-        <h1 className="text-5xl font-bold">{fields.name}</h1>
+        <RichText content={content} />
       </div>
     </section>
   )
