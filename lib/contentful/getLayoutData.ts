@@ -1,6 +1,6 @@
 import parseSlug from '@/helpers/parseSlug'
 import client from './client'
-import { PageEntrySkeleton } from './getPageData'
+import { type PageEntrySkeleton } from './getPageData'
 
 const getLayoutData = async (slug: string[]) => {
   const preview = slug?.[slug?.length - 1] === 'preview'

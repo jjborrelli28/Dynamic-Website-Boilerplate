@@ -1,11 +1,11 @@
 import {
-  Block,
+  type Block,
   BLOCKS,
-  Inline,
+  type Inline,
   INLINES,
   MARKS,
 } from '@contentful/rich-text-types'
-import { ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import {
   Blockquote,
   Heading1,

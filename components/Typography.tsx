@@ -1,7 +1,7 @@
-import CTA from '@/app/CTA'
-import { LinkWrapperProps } from '@/app/CTA/components/LinkWrapper'
+import CTA from '@/components/CTA'
+import { type LinkWrapperProps } from '@/components/CTA/components/LinkWrapper'
 import clsx from 'clsx'
-import { PropsWithChildren } from 'react'
+import { type PropsWithChildren } from 'react'
 
 type Typography = PropsWithChildren<{ className?: string }>
 

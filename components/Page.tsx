@@ -1,4 +1,4 @@
-import { Params } from '@/app/[[...slug]]/layout'
+import { type Params } from '@/app/[[...slug]]/layout'
 import getPageData from '@/lib/contentful/getPageData'
 import { notFound } from 'next/navigation'
 import SectionFactory from './SectionFactory'

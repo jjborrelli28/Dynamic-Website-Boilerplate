@@ -1,21 +1,23 @@
 import parseSlug from '@/helpers/parseSlug'
-import { EntryFieldTypes } from 'contentful'
+import { type EntryFieldTypes } from 'contentful'
 import client from './client'
+
+export type CTAEntrySkeleton = {
+  contentTypeId: 'cta'
+  fields: {
+    label: EntryFieldTypes.Text
+    url: EntryFieldTypes.Text
+    icon?: EntryFieldTypes.AssetLink
+  }
+}
+
+// Global components
 
 type MetadataEntrySkeleton = {
   contentTypeId: 'metadata'
   fields: {
     title: EntryFieldTypes.Text
     description: EntryFieldTypes.Text
-  }
-}
-
-export type CTAEntrySkeleton = {
-  contentTypeId: 'cta'
-  fields: {
-    name: EntryFieldTypes.Text
-    url: EntryFieldTypes.Text
-    icon?: EntryFieldTypes.AssetLink
   }
 }
 
@@ -30,30 +32,141 @@ type HeaderEntrySkeleton = {
   }
 }
 
+type FooterEntrySkeleton = {
+  contentTypeId: 'footer'
+  fields: {
+    name: EntryFieldTypes.Text
+    logo?: EntryFieldTypes.AssetLink
+    navigationLinks: EntryFieldTypes.Array<
+      EntryFieldTypes.EntryLink<CTAEntrySkeleton>
+    >
+    socialLinks: EntryFieldTypes.Array<
+      EntryFieldTypes.EntryLink<CTAEntrySkeleton>
+    >
+  }
+}
+
+// Global components and sections
+
 export type HeroEntrySkeleton = {
   contentTypeId: 'hero'
   fields: {
-    name: EntryFieldTypes.Text
-    content: EntryFieldTypes.RichText
+    title: EntryFieldTypes.Text
+    subtitle: EntryFieldTypes.Text
+    richText: EntryFieldTypes.RichText
     media: EntryFieldTypes.AssetLink
+    cta: EntryFieldTypes.EntryLink<CTAEntrySkeleton>
   }
 }
 
 export type SpotlightEntrySkeleton = {
   contentTypeId: 'spotlight'
   fields: {
-    name: EntryFieldTypes.Text
-    content: EntryFieldTypes.RichText
+    title: EntryFieldTypes.Text
+    subtitle: EntryFieldTypes.Text
+    richText: EntryFieldTypes.RichText
     media: EntryFieldTypes.AssetLink
   }
 }
 
-export type FooterEntrySkeleton = {
-  contentTypeId: 'footer'
+type FeatureEntrySkeleton = {
+  contentTypeId: 'feature'
   fields: {
-    name: EntryFieldTypes.Text
+    title: EntryFieldTypes.Text
+    richText: EntryFieldTypes.RichText
+    icon: EntryFieldTypes.AssetLink
   }
 }
+
+export type FeaturesEntrySkeleton = {
+  contentTypeId: 'features'
+  fields: {
+    title: EntryFieldTypes.Text
+    richText: EntryFieldTypes.RichText
+    features: EntryFieldTypes.Array<
+      EntryFieldTypes.EntryLink<FeatureEntrySkeleton>
+    >
+  }
+}
+
+type TestimonialEntrySkeleton = {
+  contentTypeId: 'testimonial'
+  fields: {
+    name: EntryFieldTypes.Text
+    role: EntryFieldTypes.Text
+    richText: EntryFieldTypes.RichText
+    photo: EntryFieldTypes.AssetLink
+  }
+}
+
+export type TestimonialsEntrySkeleton = {
+  contentTypeId: 'testimonials'
+  fields: {
+    title: EntryFieldTypes.Text
+    richText: EntryFieldTypes.RichText
+    testimonials: EntryFieldTypes.Array<
+      EntryFieldTypes.EntryLink<TestimonialEntrySkeleton>
+    >
+  }
+}
+
+export type CallToActionEntrySkeleton = {
+  contentTypeId: 'callToAction'
+  fields: {
+    title: EntryFieldTypes.Text
+    richText: EntryFieldTypes.RichText
+    ctas: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<CTAEntrySkeleton>>
+  }
+}
+
+export type GalleryEntrySkeleton = {
+  contentTypeId: 'gallery'
+  fields: {
+    title: EntryFieldTypes.Text
+    richText: EntryFieldTypes.RichText
+    medias: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>
+  }
+}
+
+type PostEntrySkeleton = {
+  contentTypeId: 'post'
+  fields: {
+    title: EntryFieldTypes.Text
+    slug: EntryFieldTypes.Text
+    excerpt: EntryFieldTypes.Text
+    thumbnail: EntryFieldTypes.AssetLink
+    richText: EntryFieldTypes.RichText
+    publishDate: EntryFieldTypes.Text
+  }
+}
+
+export type BlogEntrySkeleton = {
+  contentTypeId: 'blog'
+  fields: {
+    title: EntryFieldTypes.Text
+    richText: EntryFieldTypes.RichText
+    medias: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<PostEntrySkeleton>>
+  }
+}
+
+type FAQEntrySkeleton = {
+  contentTypeId: 'faq'
+  fields: {
+    question: EntryFieldTypes.Text
+    answer: EntryFieldTypes.Text
+  }
+}
+
+export type FrequentlyAskedQuestionsEntrySkeleton = {
+  contentTypeId: 'frequentlyAskedQuestions'
+  fields: {
+    title: EntryFieldTypes.Text
+    richText: EntryFieldTypes.RichText
+    medias: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<FAQEntrySkeleton>>
+  }
+}
+
+// Page
 
 export type PageEntrySkeleton = {
   contentTypeId: 'page'
@@ -65,6 +178,12 @@ export type PageEntrySkeleton = {
     sections?: EntryFieldTypes.Array<
       | EntryFieldTypes.EntryLink<HeroEntrySkeleton>
       | EntryFieldTypes.EntryLink<SpotlightEntrySkeleton>
+      | EntryFieldTypes.EntryLink<FeaturesEntrySkeleton>
+      | EntryFieldTypes.EntryLink<TestimonialsEntrySkeleton>
+      | EntryFieldTypes.EntryLink<CallToActionEntrySkeleton>
+      | EntryFieldTypes.EntryLink<GalleryEntrySkeleton>
+      | EntryFieldTypes.EntryLink<BlogEntrySkeleton>
+      | EntryFieldTypes.EntryLink<FrequentlyAskedQuestionsEntrySkeleton>
     >
     footer?: EntryFieldTypes.EntryLink<FooterEntrySkeleton>
   }

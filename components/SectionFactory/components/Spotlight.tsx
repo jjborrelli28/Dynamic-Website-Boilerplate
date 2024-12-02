@@ -1,6 +1,6 @@
-import { RichText } from '@/components/RichText'
-import { Document } from '@contentful/rich-text-types'
-import { Asset } from 'contentful'
+import RichText from '@/components/RichText'
+import { type Document } from '@contentful/rich-text-types'
+import { type Asset } from 'contentful'
 
 export type SpotlightProps = {
   fields: {

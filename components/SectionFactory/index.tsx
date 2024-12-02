@@ -1,13 +1,29 @@
 import {
-  HeroEntrySkeleton,
-  SpotlightEntrySkeleton,
+  type BlogEntrySkeleton,
+  type CallToActionEntrySkeleton,
+  type FeaturesEntrySkeleton,
+  type FrequentlyAskedQuestionsEntrySkeleton,
+  type GalleryEntrySkeleton,
+  type HeroEntrySkeleton,
+  type SpotlightEntrySkeleton,
+  type TestimonialsEntrySkeleton,
 } from '@/lib/contentful/getPageData'
-import { Entry } from 'contentful'
+import { type Entry } from 'contentful'
 import dynamicSectionComponents from './dynamicSectionComponents'
 
 type Section =
+  | Entry<BlogEntrySkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>
+  | Entry<CallToActionEntrySkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>
+  | Entry<FeaturesEntrySkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>
+  | Entry<
+      FrequentlyAskedQuestionsEntrySkeleton,
+      'WITHOUT_UNRESOLVABLE_LINKS',
+      string
+    >
+  | Entry<GalleryEntrySkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>
   | Entry<HeroEntrySkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>
   | Entry<SpotlightEntrySkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>
+  | Entry<TestimonialsEntrySkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>
   | undefined
 
 type SectionFactoryProps = {

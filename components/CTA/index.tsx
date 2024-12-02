@@ -1,5 +1,5 @@
-import ButtonWrapper, { ButtonWrapperProps } from './components/ButtonWrapper'
-import LinkWrapper, { LinkWrapperProps } from './components/LinkWrapper'
+import ButtonWrapper, { type ButtonWrapperProps } from './components/ButtonWrapper'
+import LinkWrapper, { type LinkWrapperProps } from './components/LinkWrapper'
 
 type CTAProps = ButtonWrapperProps | LinkWrapperProps
 

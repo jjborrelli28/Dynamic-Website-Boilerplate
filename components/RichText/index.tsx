@@ -1,16 +1,16 @@
 import {
   documentToReactComponents,
-  NodeRenderer,
+  type NodeRenderer,
 } from '@contentful/rich-text-react-renderer'
-import { BLOCKS, Document } from '@contentful/rich-text-types'
+import { type BLOCKS, type Document } from '@contentful/rich-text-types'
 import { useMemo } from 'react'
 import {
-  BlockClass,
+  type BlockClass,
   createBlockRenderers,
   createInlineRenderers,
   createTextMarkRenderers,
-  InlineClass,
-  TextMarkClass,
+  type InlineClass,
+  type TextMarkClass,
 } from './renderers'
 
 type Renderers = {
@@ -26,7 +26,7 @@ type RichTextProps = {
   textMarkClass?: TextMarkClass
 }
 
-export const RichText = ({
+const RichText = ({
   content,
   className,
   renderers,
@@ -52,3 +52,5 @@ export const RichText = ({
     </div>
   )
 }
+
+export default RichText

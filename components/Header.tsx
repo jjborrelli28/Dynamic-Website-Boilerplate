@@ -1,6 +1,6 @@
-import { CTAEntrySkeleton } from '@/lib/contentful/getPageData'
-import { Asset, Entry } from 'contentful'
-import CTA from '../app/CTA'
+import { type CTAEntrySkeleton } from '@/lib/contentful/getPageData'
+import { type Asset, type Entry } from 'contentful'
+import CTA from './CTA'
 import Media from './Media'
 import clsx from 'clsx'
 
@@ -40,11 +40,11 @@ const Header = ({ fields }: HeaderProps) => {
           {navigationLinks.map((navigationLink, i) => {
             if (!navigationLink) return null
 
-            const { name, url } = navigationLink?.fields
+            const { label, url } = navigationLink?.fields
 
             return (
               <CTA key={i} href={url}>
-                {name}
+                {label}
               </CTA>
             )
           })}

@@ -1,5 +1,5 @@
-import Image, { ImageProps } from './components/Image'
-import Video, { VideoProps } from './components/Video'
+import Image, { type ImageProps } from './components/Image'
+import Video, { type VideoProps } from './components/Video'
 
 type MediaProps = Omit<ImageProps, 'alt'> | VideoProps
 
