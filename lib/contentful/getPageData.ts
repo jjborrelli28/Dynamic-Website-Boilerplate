@@ -48,6 +48,82 @@ type FooterEntrySkeleton = {
 
 // Global components and sections
 
+export type PostEntrySkeleton = {
+  contentTypeId: 'post'
+  fields: {
+    title: EntryFieldTypes.Text
+    slug: EntryFieldTypes.Text
+    excerpt: EntryFieldTypes.Text
+    thumbnail: EntryFieldTypes.AssetLink
+    richText: EntryFieldTypes.RichText
+    publishDate: EntryFieldTypes.Text
+  }
+}
+
+export type BlogEntrySkeleton = {
+  contentTypeId: 'blog'
+  fields: {
+    title: EntryFieldTypes.Text
+    richText: EntryFieldTypes.RichText
+    posts: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<PostEntrySkeleton>>
+  }
+}
+
+export type CallToActionEntrySkeleton = {
+  contentTypeId: 'callToAction'
+  fields: {
+    title: EntryFieldTypes.Text
+    richText: EntryFieldTypes.RichText
+    ctas: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<CTAEntrySkeleton>>
+  }
+}
+
+export type FeatureEntrySkeleton = {
+  contentTypeId: 'feature'
+  fields: {
+    title: EntryFieldTypes.Text
+    richText: EntryFieldTypes.RichText
+    icon: EntryFieldTypes.AssetLink
+  }
+}
+
+export type FeaturesEntrySkeleton = {
+  contentTypeId: 'features'
+  fields: {
+    title: EntryFieldTypes.Text
+    richText: EntryFieldTypes.RichText
+    features: EntryFieldTypes.Array<
+      EntryFieldTypes.EntryLink<FeatureEntrySkeleton>
+    >
+  }
+}
+
+export type FAQEntrySkeleton = {
+  contentTypeId: 'faq'
+  fields: {
+    question: EntryFieldTypes.Text
+    answer: EntryFieldTypes.Text
+  }
+}
+
+export type FrequentlyAskedQuestionsEntrySkeleton = {
+  contentTypeId: 'frequentlyAskedQuestions'
+  fields: {
+    title: EntryFieldTypes.Text
+    richText: EntryFieldTypes.RichText
+    medias: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<FAQEntrySkeleton>>
+  }
+}
+
+export type GalleryEntrySkeleton = {
+  contentTypeId: 'gallery'
+  fields: {
+    title: EntryFieldTypes.Text
+    richText: EntryFieldTypes.RichText
+    medias: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>
+  }
+}
+
 export type HeroEntrySkeleton = {
   contentTypeId: 'hero'
   fields: {
@@ -69,27 +145,7 @@ export type SpotlightEntrySkeleton = {
   }
 }
 
-type FeatureEntrySkeleton = {
-  contentTypeId: 'feature'
-  fields: {
-    title: EntryFieldTypes.Text
-    richText: EntryFieldTypes.RichText
-    icon: EntryFieldTypes.AssetLink
-  }
-}
-
-export type FeaturesEntrySkeleton = {
-  contentTypeId: 'features'
-  fields: {
-    title: EntryFieldTypes.Text
-    richText: EntryFieldTypes.RichText
-    features: EntryFieldTypes.Array<
-      EntryFieldTypes.EntryLink<FeatureEntrySkeleton>
-    >
-  }
-}
-
-type TestimonialEntrySkeleton = {
+export type TestimonialEntrySkeleton = {
   contentTypeId: 'testimonial'
   fields: {
     name: EntryFieldTypes.Text
@@ -110,62 +166,6 @@ export type TestimonialsEntrySkeleton = {
   }
 }
 
-export type CallToActionEntrySkeleton = {
-  contentTypeId: 'callToAction'
-  fields: {
-    title: EntryFieldTypes.Text
-    richText: EntryFieldTypes.RichText
-    ctas: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<CTAEntrySkeleton>>
-  }
-}
-
-export type GalleryEntrySkeleton = {
-  contentTypeId: 'gallery'
-  fields: {
-    title: EntryFieldTypes.Text
-    richText: EntryFieldTypes.RichText
-    medias: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>
-  }
-}
-
-type PostEntrySkeleton = {
-  contentTypeId: 'post'
-  fields: {
-    title: EntryFieldTypes.Text
-    slug: EntryFieldTypes.Text
-    excerpt: EntryFieldTypes.Text
-    thumbnail: EntryFieldTypes.AssetLink
-    richText: EntryFieldTypes.RichText
-    publishDate: EntryFieldTypes.Text
-  }
-}
-
-export type BlogEntrySkeleton = {
-  contentTypeId: 'blog'
-  fields: {
-    title: EntryFieldTypes.Text
-    richText: EntryFieldTypes.RichText
-    medias: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<PostEntrySkeleton>>
-  }
-}
-
-type FAQEntrySkeleton = {
-  contentTypeId: 'faq'
-  fields: {
-    question: EntryFieldTypes.Text
-    answer: EntryFieldTypes.Text
-  }
-}
-
-export type FrequentlyAskedQuestionsEntrySkeleton = {
-  contentTypeId: 'frequentlyAskedQuestions'
-  fields: {
-    title: EntryFieldTypes.Text
-    richText: EntryFieldTypes.RichText
-    medias: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<FAQEntrySkeleton>>
-  }
-}
-
 // Page
 
 export type PageEntrySkeleton = {
@@ -176,14 +176,14 @@ export type PageEntrySkeleton = {
     metadata?: EntryFieldTypes.EntryLink<MetadataEntrySkeleton>
     header?: EntryFieldTypes.EntryLink<HeaderEntrySkeleton>
     sections?: EntryFieldTypes.Array<
+      | EntryFieldTypes.EntryLink<BlogEntrySkeleton>
+      | EntryFieldTypes.EntryLink<CallToActionEntrySkeleton>
+      | EntryFieldTypes.EntryLink<FeaturesEntrySkeleton>
+      | EntryFieldTypes.EntryLink<FrequentlyAskedQuestionsEntrySkeleton>
+      | EntryFieldTypes.EntryLink<GalleryEntrySkeleton>
       | EntryFieldTypes.EntryLink<HeroEntrySkeleton>
       | EntryFieldTypes.EntryLink<SpotlightEntrySkeleton>
-      | EntryFieldTypes.EntryLink<FeaturesEntrySkeleton>
       | EntryFieldTypes.EntryLink<TestimonialsEntrySkeleton>
-      | EntryFieldTypes.EntryLink<CallToActionEntrySkeleton>
-      | EntryFieldTypes.EntryLink<GalleryEntrySkeleton>
-      | EntryFieldTypes.EntryLink<BlogEntrySkeleton>
-      | EntryFieldTypes.EntryLink<FrequentlyAskedQuestionsEntrySkeleton>
     >
     footer?: EntryFieldTypes.EntryLink<FooterEntrySkeleton>
   }

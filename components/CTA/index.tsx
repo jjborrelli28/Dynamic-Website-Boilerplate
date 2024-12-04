@@ -4,13 +4,26 @@ import LinkWrapper, { type LinkWrapperProps } from './components/LinkWrapper'
 type CTAProps = ButtonWrapperProps | LinkWrapperProps
 
 const CTA = (props: CTAProps) => {
-  return 'onClick' in props ? (
-    <ButtonWrapper {...(props as ButtonWrapperProps)}>
-      {props.children}
-    </ButtonWrapper>
-  ) : 'href' in props ? (
-    <LinkWrapper {...(props as LinkWrapperProps)}>{props.children}</LinkWrapper>
-  ) : null
+  const componentType =
+    'onClick' in props ? 'button' : 'href' in props ? 'link' : null
+
+  switch (componentType) {
+    case 'button':
+      return (
+        <ButtonWrapper {...(props as ButtonWrapperProps)}>
+          {props.children}
+        </ButtonWrapper>
+      )
+    case 'link':
+      return (
+        <LinkWrapper {...(props as LinkWrapperProps)}>
+          {props.children}
+        </LinkWrapper>
+      )
+    default:
+      return null
+  }
 }
 
 export default CTA
+
