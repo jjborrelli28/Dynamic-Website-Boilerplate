@@ -2,12 +2,42 @@ import parseSlug from '@/helpers/parseSlug'
 import { type EntryFieldTypes } from 'contentful'
 import client from './client'
 
+export type Icons =
+  | 'GitHub'
+  | 'LinkedIn'
+  | 'Facebook'
+  | 'Instagram'
+  | 'Twitter'
+  | 'X'
+  | 'YouTube'
+  | 'WhatsApp'
+  | 'ArrowForward'
+  | 'ArrowBack'
+  | 'ArrowUpward'
+  | 'ArrowDownward'
+  | 'Add'
+  | 'Delete'
+  | 'Edit'
+  | 'Check'
+  | 'Close'
+  | 'Search'
+  | 'Success'
+  | 'Warning'
+  | 'Error'
+  | 'Info'
+
+export type IconOptions =
+  | 'Icon on the left'
+  | 'Is an icon'
+  | 'Icon on the right'
+
 export type CTAEntrySkeleton = {
   contentTypeId: 'cta'
   fields: {
     label: EntryFieldTypes.Text
     url: EntryFieldTypes.Text
-    icon?: EntryFieldTypes.AssetLink
+    icon?: EntryFieldTypes.Text<Icons>
+    iconOption?: EntryFieldTypes.Text<IconOptions>
   }
 }
 
@@ -43,6 +73,8 @@ type FooterEntrySkeleton = {
     socialLinks: EntryFieldTypes.Array<
       EntryFieldTypes.EntryLink<CTAEntrySkeleton>
     >
+    richText: EntryFieldTypes.RichText
+    copyright: EntryFieldTypes.Text
   }
 }
 

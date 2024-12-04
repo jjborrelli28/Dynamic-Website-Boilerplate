@@ -1,16 +1,16 @@
 import dynamic from 'next/dynamic'
 
 const DynamicSection = {
-  blog: dynamic(() => import('./components/Blog')),
-  callToAction: dynamic(() => import('./components/CallToAction')),
-  features: dynamic(() => import('./components/Features')),
-  frequentlyAskedQuestions: dynamic(
+  Blog: dynamic(() => import('./components/Blog')),
+  CallToAction: dynamic(() => import('./components/CallToAction')),
+  Features: dynamic(() => import('./components/Features')),
+  FrequentlyAskedQuestions: dynamic(
     () => import('./components/FrequentlyAskedQuestions'),
   ),
-  gallery: dynamic(() => import('./components/Gallery')),
-  hero: dynamic(() => import('./components/Hero')),
-  spotlight: dynamic(() => import('./components/Spotlight')),
-  testimonials: dynamic(() => import('./components/Testimonials')),
+  Gallery: dynamic(() => import('./components/Gallery')),
+  Hero: dynamic(() => import('./components/Hero')),
+  Spotlight: dynamic(() => import('./components/Spotlight')),
+  Testimonials: dynamic(() => import('./components/Testimonials')),
 }
 
 export default DynamicSection

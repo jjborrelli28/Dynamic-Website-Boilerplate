@@ -1,7 +1,8 @@
-import Link, { LinkProps } from 'next/link'
-import { ReactNode } from 'react'
+import Link, { type LinkProps } from 'next/link'
+import { type ReactNode } from 'react'
+import { type CommonProps } from '..'
 
-export interface LinkWrapperProps extends LinkProps {
+export interface LinkWrapperProps extends LinkProps, CommonProps {
   children: ReactNode
 }
 

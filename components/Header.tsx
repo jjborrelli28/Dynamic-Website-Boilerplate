@@ -1,8 +1,8 @@
 import { type CTAEntrySkeleton } from '@/lib/contentful/getPageData'
+import clsx from 'clsx'
 import { type Asset, type Entry } from 'contentful'
 import CTA from './CTA'
 import Media from './Media'
-import clsx from 'clsx'
 
 type HeaderProps = {
   fields: {
@@ -36,19 +36,21 @@ const Header = ({ fields }: HeaderProps) => {
             />
           </CTA>
         )}
-        <nav className="text-md flex gap-5">
-          {navigationLinks.map((navigationLink, i) => {
-            if (!navigationLink) return null
+        {navigationLinks && (
+          <nav className="text-md flex gap-5">
+            {navigationLinks.map((navigationLink, i) => {
+              if (!navigationLink) return null
 
-            const { label, url } = navigationLink?.fields
+              const { label, url } = navigationLink?.fields
 
-            return (
-              <CTA key={i} href={url}>
-                {label}
-              </CTA>
-            )
-          })}
-        </nav>
+              return (
+                <CTA key={i} href={url}>
+                  {label}
+                </CTA>
+              )
+            })}
+          </nav>
+        )}
       </div>
     </header>
   )

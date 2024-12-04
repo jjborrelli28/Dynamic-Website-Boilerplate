@@ -50,18 +50,18 @@ const SectionFactory = ({ sections }: SectionFactoryProps) => {
     switch (contentTypeId) {
       case 'blog':
         return (
-          <DynamicSection.blog key={i} fields={fields as BlogProps['fields']} />
+          <DynamicSection.Blog key={i} fields={fields as BlogProps['fields']} />
         )
       case 'callToAction':
         return (
-          <DynamicSection.callToAction
+          <DynamicSection.CallToAction
             key={i}
             fields={fields as CallToActionProps['fields']}
           />
         )
       case 'features':
         return (
-          <DynamicSection.features
+          <DynamicSection.Features
             key={i}
             fields={fields as FeaturesProps['fields']}
           />
@@ -69,33 +69,33 @@ const SectionFactory = ({ sections }: SectionFactoryProps) => {
 
       case 'frequentlyAskedQuestions':
         return (
-          <DynamicSection.frequentlyAskedQuestions
+          <DynamicSection.FrequentlyAskedQuestions
             key={i}
             fields={fields as FrequentlyAskedQuestionsProps['fields']}
           />
         )
       case 'gallery':
         return (
-          <DynamicSection.gallery
+          <DynamicSection.Gallery
             key={i}
             fields={fields as GalleryProps['fields']}
           />
         )
       case 'hero':
         return (
-          <DynamicSection.hero key={i} fields={fields as HeroProps['fields']} />
+          <DynamicSection.Hero key={i} fields={fields as HeroProps['fields']} />
         )
 
       case 'spotlight':
         return (
-          <DynamicSection.spotlight
+          <DynamicSection.Spotlight
             key={i}
             fields={fields as SpotlightProps['fields']}
           />
         )
       case 'testimonials':
         return (
-          <DynamicSection.testimonials
+          <DynamicSection.Testimonials
             key={i}
             fields={fields as TestimonialsProps['fields']}
           />
