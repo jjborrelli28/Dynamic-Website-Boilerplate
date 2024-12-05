@@ -1,7 +1,7 @@
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import getLayoutData from '@/lib/contentful/getLayoutData'
-import { type ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import './../globals.css'
 
 export type Params = Promise<{ slug: string[] }>

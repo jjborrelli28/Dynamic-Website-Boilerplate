@@ -2,7 +2,7 @@ import {
   documentToReactComponents,
   type NodeRenderer,
 } from '@contentful/rich-text-react-renderer'
-import { type BLOCKS, type Document } from '@contentful/rich-text-types'
+import type { BLOCKS, Document } from '@contentful/rich-text-types'
 import { useMemo } from 'react'
 import {
   type BlockClass,

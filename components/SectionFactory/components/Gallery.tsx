@@ -1,5 +1,5 @@
-import { type Document } from '@contentful/rich-text-types'
-import { type Asset } from 'contentful'
+import type { Document } from '@contentful/rich-text-types'
+import type { Asset } from 'contentful'
 
 export type GalleryProps = {
   fields: {
@@ -11,7 +11,7 @@ export type GalleryProps = {
 
 const Gallery = ({ fields }: GalleryProps) => {
   console.log(fields)
-  
+
   return <div>Gallery</div>
 }
 

@@ -1,12 +1,12 @@
 import CTA from '@/components/CTA'
-import { type LinkWrapperProps } from '@/components/CTA/components/LinkWrapper'
+import type { LinkWrapperProps } from '@/components/CTA/components/LinkWrapper'
 import clsx from 'clsx'
-import { type PropsWithChildren } from 'react'
+import type { PropsWithChildren } from 'react'
 
 type Typography = PropsWithChildren<{ className?: string }>
 
 export const Heading1 = ({ children, className }: Typography) => (
-  <h1 className={clsx('mb-6 text-5xl font-extrabold leading-tight', className)}>
+  <h1 className={clsx('mb-6 text-6xl font-extrabold leading-tight', className)}>
     {children}
   </h1>
 )

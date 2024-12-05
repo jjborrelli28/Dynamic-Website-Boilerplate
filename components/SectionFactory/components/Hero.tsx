@@ -1,8 +1,11 @@
+import CTA from '@/components/CTA'
+import { buttonStyles } from '@/components/CTA/components/ButtonWrapper'
 import Media from '@/components/Media'
 import RichText from '@/components/RichText'
-import { type CTAEntrySkeleton } from '@/lib/contentful/getPageData'
-import { type Document } from '@contentful/rich-text-types'
-import { type Asset, type Entry } from 'contentful'
+import { Heading1, Heading2 } from '@/components/Typography'
+import type { CTAEntrySkeleton } from '@/lib/contentful/getPageData'
+import type { Document } from '@contentful/rich-text-types'
+import type { Asset, Entry } from 'contentful'
 
 export type HeroProps = {
   fields: {
@@ -17,14 +20,19 @@ export type HeroProps = {
 }
 
 const Hero = ({ fields }: HeroProps) => {
-  const { richText, media } = fields
+  const { title, subtitle, richText, media, cta } = fields
 
   return (
-    <section className="min-h-screen bg-white">
-      <div className="container mx-auto px-5 py-16">
-        <Media fields={media?.fields} fill className="-z-10 object-cover" />
-        <RichText content={richText} />
+    <section className="-mt-20 min-h-screen bg-blue-100 py-20">
+      <div className="container relative z-10 mx-auto flex flex-col gap-5 px-5 py-20">
+        <Heading1>{title}</Heading1>
+        <Heading2 className="xl:w-1/2">{subtitle}</Heading2>
+        <RichText content={richText} className="xl:w-1/2" />
+        <CTA href={cta?.fields.url} className={buttonStyles}>
+          {cta?.fields.label}
+        </CTA>
       </div>
+      <Media fields={media?.fields} fill className="object-cover" />
     </section>
   )
 }

@@ -1,6 +1,6 @@
-import { type CTAEntrySkeleton } from '@/lib/contentful/getPageData'
-import { type Document } from '@contentful/rich-text-types'
-import { type Entry } from 'contentful'
+import type { CTAEntrySkeleton } from '@/lib/contentful/getPageData'
+import type { Document } from '@contentful/rich-text-types'
+import type { Entry } from 'contentful'
 
 export type CallToActionProps = {
   fields: {
@@ -15,7 +15,7 @@ export type CallToActionProps = {
 
 const CallToAction = ({ fields }: CallToActionProps) => {
   console.log(fields)
-  
+
   return <div>CallToAction</div>
 }
 

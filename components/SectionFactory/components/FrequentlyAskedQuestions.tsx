@@ -1,6 +1,6 @@
-import { type FAQEntrySkeleton } from '@/lib/contentful/getPageData'
-import { type Document } from '@contentful/rich-text-types'
-import { type Entry } from 'contentful'
+import type { FAQEntrySkeleton } from '@/lib/contentful/getPageData'
+import type { Document } from '@contentful/rich-text-types'
+import type { Entry } from 'contentful'
 
 export type FrequentlyAskedQuestionsProps = {
   fields: {

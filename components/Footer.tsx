@@ -1,6 +1,6 @@
-import { type CTAEntrySkeleton } from '@/lib/contentful/getPageData'
-import { type Document } from '@contentful/rich-text-types'
-import { type Asset, type Entry } from 'contentful'
+import type { CTAEntrySkeleton } from '@/lib/contentful/getPageData'
+import type { Document } from '@contentful/rich-text-types'
+import type { Asset, Entry } from 'contentful'
 import { Fragment } from 'react'
 import CTA from './CTA'
 import Media from './Media'
@@ -29,7 +29,7 @@ const Footer = ({ fields }: FooterProps) => {
     fields
 
   return (
-    <footer className="bg-orange-200 py-10">
+    <footer className="bg-orange-100 py-20">
       <div className="container mx-auto flex flex-col gap-y-5 px-5">
         <div className="mb-5 flex items-center gap-x-5">
           {logo && (
@@ -42,14 +42,14 @@ const Footer = ({ fields }: FooterProps) => {
               />
             </CTA>
           )}
-          <Heading2 className="mb-0">{name}</Heading2>
+          <Heading2 className="!mb-0">{name}</Heading2>
         </div>
 
         <RichText content={richText} className="text-center" />
 
         {navigationLinks && (
-          <nav className="flex justify-center">
-            <UnorderedList className="mb-0 flex list-none gap-x-2.5">
+          <nav className="mx-auto">
+            <UnorderedList className="!mb-0 flex list-none gap-x-2.5">
               {navigationLinks.map((navigationLink, i) => {
                 if (!navigationLink) return null
 
@@ -57,10 +57,8 @@ const Footer = ({ fields }: FooterProps) => {
 
                 return (
                   <Fragment key={i}>
-                    <ListItem className="ml-0">
-                      <CTA href={url} className="font-medium">
-                        {label}
-                      </CTA>
+                    <ListItem className="!ml-0 font-semibold">
+                      <CTA href={url}>{label}</CTA>
                     </ListItem>
                     {i !== navigationLinks.length - 1 && (
                       <span className="font-semibold">|</span>
@@ -72,31 +70,27 @@ const Footer = ({ fields }: FooterProps) => {
           </nav>
         )}
 
-        <div className="flex justify-center">
-          <Paragraph className="mb-0 text-lg font-semibold">
-            {copyright}
-          </Paragraph>
-        </div>
+        <Paragraph className="mx-auto !mb-0 text-lg font-semibold">
+          {copyright}
+        </Paragraph>
 
         {socialLinks && (
-          <nav className="flex justify-center gap-x-5">
-            {socialLinks.map((socialLink, i) => {
-              if (!socialLink) return null
+          <nav className="mx-auto">
+            <UnorderedList className="!mb-0 flex list-none gap-x-5">
+              {socialLinks.map((socialLink, i) => {
+                if (!socialLink) return null
 
-              const { label, url, icon, iconOption } = socialLink.fields
+                const { label, url, icon, iconOption } = socialLink.fields
 
-              return (
-                <CTA
-                  key={i}
-                  href={url}
-                  icon={icon}
-                  iconOption={iconOption}
-                  iconClassName="text-3xl"
-                >
-                  {label}
-                </CTA>
-              )
-            })}
+                return (
+                  <ListItem key={i} className="!ml-0">
+                    <CTA href={url} icon={icon} iconOption={iconOption}>
+                      {label}
+                    </CTA>
+                  </ListItem>
+                )
+              })}
+            </UnorderedList>
           </nav>
         )}
       </div>

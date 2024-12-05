@@ -5,7 +5,7 @@ import {
   INLINES,
   MARKS,
 } from '@contentful/rich-text-types'
-import { type ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import {
   Blockquote,
   Heading1,

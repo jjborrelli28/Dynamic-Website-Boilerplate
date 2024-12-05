@@ -1,23 +1,23 @@
-import {
-  type BlogEntrySkeleton,
-  type CallToActionEntrySkeleton,
-  type FeaturesEntrySkeleton,
-  type FrequentlyAskedQuestionsEntrySkeleton,
-  type GalleryEntrySkeleton,
-  type HeroEntrySkeleton,
-  type SpotlightEntrySkeleton,
-  type TestimonialsEntrySkeleton,
+import type {
+  BlogEntrySkeleton,
+  CallToActionEntrySkeleton,
+  FeaturesEntrySkeleton,
+  FrequentlyAskedQuestionsEntrySkeleton,
+  GalleryEntrySkeleton,
+  HeroEntrySkeleton,
+  SpotlightEntrySkeleton,
+  TestimonialsEntrySkeleton,
 } from '@/lib/contentful/getPageData'
-import { type Entry } from 'contentful'
+import type { Entry } from 'contentful'
 import DynamicSection from './DynamicSection'
-import { type BlogProps } from './components/Blog'
-import { type CallToActionProps } from './components/CallToAction'
-import { type FeaturesProps } from './components/Features'
-import { type FrequentlyAskedQuestionsProps } from './components/FrequentlyAskedQuestions'
-import { type GalleryProps } from './components/Gallery'
-import { type HeroProps } from './components/Hero'
-import { type SpotlightProps } from './components/Spotlight'
-import { type TestimonialsProps } from './components/Testimonials'
+import type { BlogProps } from './components/Blog'
+import type { CallToActionProps } from './components/CallToAction'
+import type { FeaturesProps } from './components/Features'
+import type { FrequentlyAskedQuestionsProps } from './components/FrequentlyAskedQuestions'
+import type { GalleryProps } from './components/Gallery'
+import type { HeroProps } from './components/Hero'
+import type { SpotlightProps } from './components/Spotlight'
+import type { TestimonialsProps } from './components/Testimonials'
 
 type Section =
   | Entry<BlogEntrySkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>

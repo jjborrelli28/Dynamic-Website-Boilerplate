@@ -1,4 +1,4 @@
-import { type AssetFields } from 'contentful'
+import type { AssetFields } from 'contentful'
 import NextImage, { type ImageProps as NextImageProps } from 'next/image'
 
 export interface ImageProps extends Omit<NextImageProps, 'src'> {

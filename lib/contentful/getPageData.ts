@@ -1,5 +1,5 @@
 import parseSlug from '@/helpers/parseSlug'
-import { type EntryFieldTypes } from 'contentful'
+import type { EntryFieldTypes } from 'contentful'
 import client from './client'
 
 export type Icons =

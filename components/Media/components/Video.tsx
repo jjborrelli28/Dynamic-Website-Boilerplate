@@ -1,4 +1,4 @@
-import { type AssetFields } from 'contentful'
+import type { AssetFields } from 'contentful'
 
 export type VideoProps = {
   fields: AssetFields | undefined
