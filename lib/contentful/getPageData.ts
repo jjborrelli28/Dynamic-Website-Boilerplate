@@ -206,7 +206,7 @@ export type TestimonialsEntrySkeleton = {
   contentTypeId: 'testimonials'
   fields: {
     title: EntryFieldTypes.Text
-    richText: EntryFieldTypes.RichText
+    richText?: EntryFieldTypes.RichText
     testimonials: EntryFieldTypes.Array<
       EntryFieldTypes.EntryLink<TestimonialEntrySkeleton>
     >

@@ -26,7 +26,7 @@ const Features = ({ fields }: FeaturesProps) => {
 
         {richText && <RichText content={richText} />}
 
-        <div className="grid-rows-auto grid grid-cols-1 gap-20 py-10 lg:grid-cols-3">
+        <div className="grid-rows-auto grid grid-cols-1 gap-5 py-10 md:grid-cols-2 xl:grid-cols-3 xl:gap-12">
           {features.map((features, i) => {
             if (!features) return null
 

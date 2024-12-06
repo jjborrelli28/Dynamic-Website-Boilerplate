@@ -22,8 +22,8 @@ const imagePositions = {
     content: 'order-2',
   },
   Right: {
-    image: 'order-2',
-    content: 'order-1',
+    image: 'order-1 md:order-2 ',
+    content: 'order-2 md:order-1',
   },
 }
 
@@ -31,11 +31,11 @@ const Spotlight = ({ fields }: SpotlightProps) => {
   const { title, richText, media, imagePosition = 'Left' } = fields
 
   return (
-    <div className="grid grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1">
+    <div className="grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1">
       <div
         className={clsx(
           imagePositions[imagePosition].content,
-          'flex flex-col justify-center lg:p-20',
+          'flex flex-col justify-center md:p-5 lg:p-10 xl:p-20',
         )}
       >
         <Heading3>{title}</Heading3>
@@ -47,7 +47,10 @@ const Spotlight = ({ fields }: SpotlightProps) => {
         fields={media?.fields}
         height={media?.fields.file?.details.image?.height}
         width={media?.fields.file?.details.image?.width}
-        className={clsx(imagePositions[imagePosition].image)}
+        className={clsx(
+          imagePositions[imagePosition].image,
+          'h-full w-full object-cover',
+        )}
       />
     </div>
   )

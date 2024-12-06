@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 const DynamicSection = {
   Blog: dynamic(() => import('./components/Blog')),
   CallToAction: dynamic(() => import('./components/CallToAction')),
-  Features: dynamic(() => import('./Features')),
+  Features: dynamic(() => import('./components/Features')),
   FrequentlyAskedQuestions: dynamic(
     () => import('./components/FrequentlyAskedQuestions'),
   ),
