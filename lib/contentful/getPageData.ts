@@ -151,7 +151,7 @@ export type GalleryEntrySkeleton = {
   contentTypeId: 'gallery'
   fields: {
     title: EntryFieldTypes.Text
-    richText: EntryFieldTypes.RichText
+    richText?: EntryFieldTypes.RichText
     medias: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>
   }
 }
