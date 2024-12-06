@@ -123,7 +123,7 @@ export type FeaturesEntrySkeleton = {
   contentTypeId: 'features'
   fields: {
     title: EntryFieldTypes.Text
-    richText: EntryFieldTypes.RichText
+    richText?: EntryFieldTypes.RichText
     features: EntryFieldTypes.Array<
       EntryFieldTypes.EntryLink<FeatureEntrySkeleton>
     >

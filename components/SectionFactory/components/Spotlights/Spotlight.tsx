@@ -1,10 +1,10 @@
 import Media from '@/components/Media'
 import RichText from '@/components/RichText'
-import { Heading2 } from '@/components/Typography'
 import type { imagePositions } from '@/lib/contentful/getPageData'
 import type { Document } from '@contentful/rich-text-types'
 import clsx from 'clsx'
 import type { Asset } from 'contentful'
+import { Heading3 } from '../../../Typography'
 
 export type SpotlightProps = {
   fields: {
@@ -38,7 +38,7 @@ const Spotlight = ({ fields }: SpotlightProps) => {
           'flex flex-col justify-center lg:p-20',
         )}
       >
-        <Heading2>{title}</Heading2>
+        <Heading3>{title}</Heading3>
 
         <RichText content={richText} />
       </div>
