@@ -105,7 +105,7 @@ export type CallToActionEntrySkeleton = {
   contentTypeId: 'callToAction'
   fields: {
     title: EntryFieldTypes.Text
-    richText: EntryFieldTypes.RichText
+    richText?: EntryFieldTypes.RichText
     ctas: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<CTAEntrySkeleton>>
   }
 }

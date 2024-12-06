@@ -7,16 +7,37 @@ type ButtonHTMLProps = DetailedHTMLProps<
   HTMLButtonElement
 >
 
-export interface ButtonWrapperProps extends CommonProps, ButtonHTMLProps {}
+export type ButtonVariants = 'fill' | 'outline'
 
-export const buttonStyles =
-  'bg-blue-900 px-6 py-2 font-semibold text-white transition duration-300 hover:bg-blue-800 focus:outline-none'
+export interface ButtonWrapperProps extends CommonProps, ButtonHTMLProps {
+  variant?: 'fill' | 'outline'
+}
+
+const baseButtonStyles =
+  ' px-6 py-2 font-semibold  transition duration-300  focus:outline-none'
+
+const fillButtonStyles = clsx(
+  baseButtonStyles,
+  'bg-blue-900 text-white hover:bg-blue-800',
+)
+
+const outlineButtonStyles = clsx(
+  baseButtonStyles,
+  'border border-blue-800 bg-transparent text-blue-900 hover:bg-blue-900 hover:text-white',
+)
+
+export const buttonVariants = {
+  fill: fillButtonStyles,
+  outline: outlineButtonStyles,
+}
 
 const ButtonWrapper = (props: ButtonWrapperProps) => {
-  const { className, ...restProps } = props
+  const { className, variant = 'fill', ...restProps } = props
+
+  const styles = buttonVariants[variant]
 
   return (
-    <button className={clsx(buttonStyles, className)} {...restProps}>
+    <button className={clsx(styles, className)} {...restProps}>
       {props.children}
     </button>
   )
