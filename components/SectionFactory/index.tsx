@@ -5,7 +5,7 @@ import type {
   FrequentlyAskedQuestionsEntrySkeleton,
   GalleryEntrySkeleton,
   HeroEntrySkeleton,
-  SpotlightEntrySkeleton,
+  SpotlightsEntrySkeleton,
   TestimonialsEntrySkeleton,
 } from '@/lib/contentful/getPageData'
 import type { Entry } from 'contentful'
@@ -16,7 +16,7 @@ import type { FeaturesProps } from './components/Features'
 import type { FrequentlyAskedQuestionsProps } from './components/FrequentlyAskedQuestions'
 import type { GalleryProps } from './components/Gallery'
 import type { HeroProps } from './components/Hero'
-import type { SpotlightProps } from './components/Spotlight'
+import type { SpotlightsProps } from './components/Spotlights'
 import type { TestimonialsProps } from './components/Testimonials'
 
 type Section =
@@ -30,7 +30,7 @@ type Section =
     >
   | Entry<GalleryEntrySkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>
   | Entry<HeroEntrySkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>
-  | Entry<SpotlightEntrySkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>
+  | Entry<SpotlightsEntrySkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>
   | Entry<TestimonialsEntrySkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>
   | undefined
 
@@ -86,11 +86,11 @@ const SectionFactory = ({ sections }: SectionFactoryProps) => {
           <DynamicSection.Hero key={i} fields={fields as HeroProps['fields']} />
         )
 
-      case 'spotlight':
+      case 'spotlights':
         return (
-          <DynamicSection.Spotlight
+          <DynamicSection.Spotlights
             key={i}
-            fields={fields as SpotlightProps['fields']}
+            fields={fields as SpotlightsProps['fields']}
           />
         )
       case 'testimonials':

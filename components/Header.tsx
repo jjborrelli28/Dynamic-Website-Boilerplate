@@ -38,23 +38,21 @@ const Header = ({ fields }: HeaderProps) => {
           </CTA>
         )}
 
-        {navigationLinks && (
-          <nav className="flex gap-5">
-            <UnorderedList className="!mb-0 flex list-none gap-x-5">
-              {navigationLinks.map((navigationLink, i) => {
-                if (!navigationLink) return null
+        <nav className="flex gap-5">
+          <UnorderedList className="!mb-0 flex list-none gap-x-5">
+            {navigationLinks.map((navigationLink, i) => {
+              if (!navigationLink) return null
 
-                const { label, url } = navigationLink?.fields
+              const { label, url } = navigationLink?.fields
 
-                return (
-                  <ListItem key={i} className="!ml-0 font-semibold">
-                    <CTA href={url}>{label}</CTA>
-                  </ListItem>
-                )
-              })}
-            </UnorderedList>
-          </nav>
-        )}
+              return (
+                <ListItem key={i} className="!ml-0 font-semibold">
+                  <CTA href={url}>{label}</CTA>
+                </ListItem>
+              )
+            })}
+          </UnorderedList>
+        </nav>
       </div>
     </header>
   )

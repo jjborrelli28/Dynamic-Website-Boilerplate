@@ -9,7 +9,7 @@ const DynamicSection = {
   ),
   Gallery: dynamic(() => import('./components/Gallery')),
   Hero: dynamic(() => import('./components/Hero')),
-  Spotlight: dynamic(() => import('./components/Spotlight')),
+  Spotlights: dynamic(() => import('./components/Spotlights')),
   Testimonials: dynamic(() => import('./components/Testimonials')),
 }
 

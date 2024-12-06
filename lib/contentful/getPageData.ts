@@ -67,13 +67,13 @@ type FooterEntrySkeleton = {
   fields: {
     name: EntryFieldTypes.Text
     logo?: EntryFieldTypes.AssetLink
-    navigationLinks: EntryFieldTypes.Array<
+    navigationLinks?: EntryFieldTypes.Array<
       EntryFieldTypes.EntryLink<CTAEntrySkeleton>
     >
     socialLinks: EntryFieldTypes.Array<
       EntryFieldTypes.EntryLink<CTAEntrySkeleton>
     >
-    richText: EntryFieldTypes.RichText
+    richText?: EntryFieldTypes.RichText
     copyright: EntryFieldTypes.Text
   }
 }
@@ -160,20 +160,35 @@ export type HeroEntrySkeleton = {
   contentTypeId: 'hero'
   fields: {
     title: EntryFieldTypes.Text
-    subtitle: EntryFieldTypes.Text
+    subtitle?: EntryFieldTypes.Text
     richText: EntryFieldTypes.RichText
-    media: EntryFieldTypes.AssetLink
-    cta: EntryFieldTypes.EntryLink<CTAEntrySkeleton>
+    media?: EntryFieldTypes.AssetLink
+    cta?: EntryFieldTypes.EntryLink<CTAEntrySkeleton>
   }
 }
+
+export type imagePositions = 'Left' | 'Right'
 
 export type SpotlightEntrySkeleton = {
   contentTypeId: 'spotlight'
   fields: {
     title: EntryFieldTypes.Text
-    subtitle: EntryFieldTypes.Text
+    subtitle?: EntryFieldTypes.Text
     richText: EntryFieldTypes.RichText
     media: EntryFieldTypes.AssetLink
+    imagePosition?: EntryFieldTypes.Text<imagePositions>
+  }
+}
+
+export type SpotlightsEntrySkeleton = {
+  contentTypeId: 'spotlights'
+  fields: {
+    title: EntryFieldTypes.Text
+    subtitle?: EntryFieldTypes.Text
+    richText?: EntryFieldTypes.RichText
+    spotlights: EntryFieldTypes.Array<
+      EntryFieldTypes.EntryLink<SpotlightEntrySkeleton>
+    >
   }
 }
 
@@ -214,7 +229,7 @@ export type PageEntrySkeleton = {
       | EntryFieldTypes.EntryLink<FrequentlyAskedQuestionsEntrySkeleton>
       | EntryFieldTypes.EntryLink<GalleryEntrySkeleton>
       | EntryFieldTypes.EntryLink<HeroEntrySkeleton>
-      | EntryFieldTypes.EntryLink<SpotlightEntrySkeleton>
+      | EntryFieldTypes.EntryLink<SpotlightsEntrySkeleton>
       | EntryFieldTypes.EntryLink<TestimonialsEntrySkeleton>
     >
     footer?: EntryFieldTypes.EntryLink<FooterEntrySkeleton>

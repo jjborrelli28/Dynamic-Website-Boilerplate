@@ -5,13 +5,13 @@ import { Fragment } from 'react'
 import CTA from './CTA'
 import Media from './Media'
 import RichText from './RichText'
-import { Heading2, ListItem, Paragraph, UnorderedList } from './Typography'
+import { ListItem, Paragraph, UnorderedList } from './Typography'
 
 export type FooterProps = {
   fields: {
     name: string
     logo?: Asset<'WITHOUT_UNRESOLVABLE_LINKS', string> | undefined
-    navigationLinks: (
+    navigationLinks?: (
       | Entry<CTAEntrySkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>
       | undefined
     )[]
@@ -19,20 +19,19 @@ export type FooterProps = {
       | Entry<CTAEntrySkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>
       | undefined
     )[]
-    richText: Document
+    richText?: Document
     copyright: string
   }
 }
 
 const Footer = ({ fields }: FooterProps) => {
-  const { name, logo, navigationLinks, socialLinks, richText, copyright } =
-    fields
+  const { logo, navigationLinks, socialLinks, richText, copyright } = fields
 
   return (
-    <footer className="bg-orange-100 py-20">
-      <div className="container mx-auto flex flex-col gap-y-5 px-5">
-        <div className="mb-5 flex items-center gap-x-5">
-          {logo && (
+    <footer className="bg-orange-100 px-5 py-20">
+      <div className="container mx-auto flex flex-col gap-y-5">
+        {logo && (
+          <div className="mb-5 flex items-center gap-x-5">
             <CTA href="/" aria-label="Logo">
               <Media
                 fields={logo.fields}
@@ -41,11 +40,10 @@ const Footer = ({ fields }: FooterProps) => {
                 className="max-h-10 max-w-10"
               />
             </CTA>
-          )}
-          <Heading2 className="!mb-0">{name}</Heading2>
-        </div>
+          </div>
+        )}
 
-        <RichText content={richText} className="text-center" />
+        {richText && <RichText content={richText} className="text-center" />}
 
         {navigationLinks && (
           <nav className="mx-auto">
@@ -61,7 +59,7 @@ const Footer = ({ fields }: FooterProps) => {
                       <CTA href={url}>{label}</CTA>
                     </ListItem>
                     {i !== navigationLinks.length - 1 && (
-                      <span className="font-semibold">|</span>
+                      <ListItem className="!ml-0 font-semibold">|</ListItem>
                     )}
                   </Fragment>
                 )
@@ -74,25 +72,28 @@ const Footer = ({ fields }: FooterProps) => {
           {copyright}
         </Paragraph>
 
-        {socialLinks && (
-          <nav className="mx-auto">
-            <UnorderedList className="!mb-0 flex list-none gap-x-5">
-              {socialLinks.map((socialLink, i) => {
-                if (!socialLink) return null
+        <nav className="mx-auto">
+          <UnorderedList className="!mb-0 flex list-none gap-x-5">
+            {socialLinks.map((socialLink, i) => {
+              if (!socialLink) return null
 
-                const { label, url, icon, iconOption } = socialLink.fields
+              const { label, url, icon, iconOption } = socialLink.fields
 
-                return (
-                  <ListItem key={i} className="!ml-0">
-                    <CTA href={url} icon={icon} iconOption={iconOption}>
-                      {label}
-                    </CTA>
-                  </ListItem>
-                )
-              })}
-            </UnorderedList>
-          </nav>
-        )}
+              return (
+                <ListItem key={i} className="!ml-0">
+                  <CTA
+                    href={url}
+                    icon={icon}
+                    iconOption={iconOption}
+                    aria-label={label}
+                  >
+                    {label}
+                  </CTA>
+                </ListItem>
+              )
+            })}
+          </UnorderedList>
+        </nav>
       </div>
     </footer>
   )
