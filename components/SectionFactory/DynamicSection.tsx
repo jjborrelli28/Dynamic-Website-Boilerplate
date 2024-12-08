@@ -5,7 +5,7 @@ const DynamicSection = {
   CallToAction: dynamic(() => import('./components/CallToAction')),
   Features: dynamic(() => import('./components/Features')),
   FrequentlyAskedQuestions: dynamic(
-    () => import('./components/FrequentlyAskedQuestions'),
+    () => import('./components/FrenquentlyAskedQuestions'),
   ),
   Gallery: dynamic(() => import('./components/Gallery')),
   Hero: dynamic(() => import('./components/Hero')),

@@ -142,7 +142,7 @@ export type FrequentlyAskedQuestionsEntrySkeleton = {
   contentTypeId: 'frequentlyAskedQuestions'
   fields: {
     title: EntryFieldTypes.Text
-    richText: EntryFieldTypes.RichText
+    richText?: EntryFieldTypes.RichText
     medias: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<FAQEntrySkeleton>>
   }
 }

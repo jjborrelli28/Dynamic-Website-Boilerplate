@@ -11,6 +11,7 @@ export type ButtonVariants = 'fill' | 'outline'
 
 export interface ButtonWrapperProps extends CommonProps, ButtonHTMLProps {
   variant?: 'fill' | 'outline'
+  unstyled?: boolean
 }
 
 const baseButtonStyles =
@@ -32,12 +33,12 @@ export const buttonVariants = {
 }
 
 const ButtonWrapper = (props: ButtonWrapperProps) => {
-  const { className, variant = 'fill', ...restProps } = props
+  const { variant = 'fill', className, unstyled, ...restProps } = props
 
   const styles = buttonVariants[variant]
 
   return (
-    <button className={clsx(styles, className)} {...restProps}>
+    <button className={clsx(unstyled ?? styles, className)} {...restProps}>
       {props.children}
     </button>
   )

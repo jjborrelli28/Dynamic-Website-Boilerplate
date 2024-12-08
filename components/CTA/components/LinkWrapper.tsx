@@ -9,15 +9,25 @@ export interface LinkWrapperProps extends LinkProps, CommonProps {
   className?: string
   isButton?: boolean
   variant?: ButtonVariants
+  unstyled?: boolean
 }
 
 const LinkWrapper = (props: LinkWrapperProps) => {
-  const { isButton = false, variant = 'fill', className, ...restProps } = props
+  const {
+    isButton = false,
+    variant = 'fill',
+    className,
+    unstyled,
+    ...restProps
+  } = props
 
   const buttonStyles = buttonVariants[variant]
 
   return (
-    <Link className={clsx(isButton && buttonStyles, className)} {...restProps}>
+    <Link
+      className={clsx(unstyled ?? (isButton && buttonStyles), className)}
+      {...restProps}
+    >
       {props.children}
     </Link>
   )
