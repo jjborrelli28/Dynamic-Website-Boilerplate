@@ -20,7 +20,7 @@ const Testimonials = ({ fields }: TestimonialsProps) => {
   const { title, richText, testimonials } = fields
 
   return (
-    <section className="bg-pink-100 px-5 py-20">
+    <section id="testimonials" className="bg-pink-100 px-5 py-20">
       <div className="container mx-auto">
         <Heading2>{title}</Heading2>
 

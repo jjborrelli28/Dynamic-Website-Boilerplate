@@ -16,7 +16,7 @@ const Gallery = ({ fields }: GalleryProps) => {
   const { title, richText, medias } = fields
 
   return (
-    <section className="bg-teal-100 px-5 py-10">
+    <section id="gallery" className="bg-teal-100 px-5 py-10">
       <div className="container mx-auto">
         <Heading2>{title}</Heading2>
 

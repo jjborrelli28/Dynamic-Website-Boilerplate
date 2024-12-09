@@ -21,7 +21,7 @@ const index = ({ fields }: SpotlightsProps) => {
   const { title, richText, spotlights } = fields
 
   return (
-    <section className="bg-yellow-100 px-5 py-20">
+    <section id="spotlights" className="bg-yellow-100 px-5 py-20">
       <div className="container mx-auto">
         <Heading2>{title}</Heading2>
 

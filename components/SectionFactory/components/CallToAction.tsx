@@ -20,7 +20,7 @@ const CallToAction = ({ fields }: CallToActionProps) => {
   const { title, richText, ctas } = fields
 
   return (
-    <section className="bg-indigo-100 px-5 py-20">
+    <section id="callToAction" className="bg-indigo-100 px-5 py-20">
       <div className="container mx-auto">
         <Heading2>{title}</Heading2>
 

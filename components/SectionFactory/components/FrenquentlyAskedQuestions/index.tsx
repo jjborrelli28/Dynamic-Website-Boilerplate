@@ -22,7 +22,7 @@ const FrequentlyAskedQuestions = ({
   const { title, richText, faqs } = fields
 
   return (
-    <section className="bg-gray-100 px-5 py-20">
+    <section id="frequentlyAskedQuestions" className="bg-gray-100 px-5 py-20">
       <div className="container mx-auto">
         <Heading2>{title}</Heading2>
 

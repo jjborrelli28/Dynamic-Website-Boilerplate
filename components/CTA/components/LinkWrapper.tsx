@@ -1,6 +1,9 @@
+'use client'
+
 import clsx from 'clsx'
 import Link, { type LinkProps } from 'next/link'
 import type { ReactNode } from 'react'
+import { Link as ReactScrollLink } from 'react-scroll'
 import type { CommonProps } from '..'
 import { buttonVariants, type ButtonVariants } from './ButtonWrapper'
 
@@ -18,17 +21,31 @@ const LinkWrapper = (props: LinkWrapperProps) => {
     variant = 'fill',
     className,
     unstyled,
+    href,
+    children,
     ...restProps
   } = props
 
   const buttonStyles = buttonVariants[variant]
 
-  return (
+  return typeof href === 'string' && href.startsWith('#') ? (
+    <ReactScrollLink
+      to={href.slice(1)}
+      href={href}
+      smooth={true}
+      duration={300}
+      offset={-80}
+      className={clsx(unstyled ?? (isButton && buttonStyles), className)}
+    >
+      {children}
+    </ReactScrollLink>
+  ) : (
     <Link
+      href={href}
       className={clsx(unstyled ?? (isButton && buttonStyles), className)}
       {...restProps}
     >
-      {props.children}
+      {children}
     </Link>
   )
 }

@@ -20,7 +20,7 @@ const Features = ({ fields }: FeaturesProps) => {
   const { title, richText, features } = fields
 
   return (
-    <section className="bg-green-100 px-5 py-20">
+    <section id="features" className="bg-green-100 px-5 py-20">
       <div className="container mx-auto">
         <Heading2>{title}</Heading2>
 

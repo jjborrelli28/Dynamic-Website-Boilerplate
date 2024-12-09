@@ -41,9 +41,7 @@ const Header = ({ fields }: HeaderProps) => {
     <header
       className={clsx(
         'fixed left-0 top-0 z-50 w-full p-5 shadow-xl backdrop-blur-md transition-colors',
-        isOpen
-          ? 'h-screen bg-[rgba(255,255,255,0.5)] lg:h-auto lg:bg-transparent'
-          : 'bg-transparent',
+        isOpen && 'bg-[rgba(255,255,255,0.5)] lg:bg-transparent',
       )}
     >
       <div className="container mx-auto flex flex-col justify-between gap-x-5 lg:flex-row lg:items-center">
@@ -64,10 +62,9 @@ const Header = ({ fields }: HeaderProps) => {
 
         <nav
           className={clsx(
-            'grid grid-cols-1 transition-[grid-template-rows,opacity,padding]',
-            isOpen
-              ? 'opacity-1 grid-rows-[1fr] pb-5 pt-10 lg:pb-0 lg:pt-0'
-              : 'lg:opacity-1 grid-rows-[0fr] opacity-0 lg:grid-rows-[1fr]',
+            'grid grid-cols-1 grid-rows-[0fr] transition-[grid-template-rows,opacity,padding] lg:grid-rows-[1fr]',
+            isOpen &&
+              'opacity-1 h-[calc(100vh_-_80px)] grid-rows-[1fr] pb-5 pt-10 lg:h-auto lg:pb-0 lg:pt-0',
           )}
         >
           <UnorderedList className="!mb-0 flex list-none flex-col gap-5 overflow-hidden lg:flex-row">
