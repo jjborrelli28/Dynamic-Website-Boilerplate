@@ -22,7 +22,7 @@ const Hero = ({ fields }: HeroProps) => {
   const { title, subtitle, richText, media, cta } = fields
 
   return (
-    <section className="relative -mt-20 min-h-screen bg-blue-100 px-5 py-20">
+    <section className="relative min-h-screen bg-blue-100 px-5 py-20">
       <div className="container relative z-10 mx-auto flex flex-col gap-5 py-20">
         <Heading1>{title}</Heading1>
 

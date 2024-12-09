@@ -28,7 +28,7 @@ export default async function DynamicLayout({
           }
         />
       </head>
-      <body>
+      <body className="relative">
         {header && <Header fields={header.fields} />}
         <main>{children}</main>
         {footer && <Footer fields={footer.fields} />}

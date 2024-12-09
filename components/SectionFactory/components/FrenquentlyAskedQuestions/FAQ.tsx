@@ -32,6 +32,7 @@ const FAQ = ({ fields }: FAQProps) => {
             'flex !h-10 !w-10 items-center justify-center rounded-full border-2 border-black !p-0 transition-transform',
             isOpen && 'rotate-180',
           )}
+          aria-label={isOpen ? 'Close answer' : 'Open answer'}
         />
       </div>
 
