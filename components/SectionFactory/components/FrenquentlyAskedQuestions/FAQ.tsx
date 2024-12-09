@@ -20,8 +20,8 @@ const FAQ = ({ fields }: FAQProps) => {
   const { question, answer } = fields
 
   return (
-    <div>
-      <div className="flex justify-between border-b-2 border-black p-5">
+    <div className="border-b-2 border-black p-5">
+      <div className="flex justify-between">
         <Heading3 className="!mb-0">{question}</Heading3>
         <CTA
           onClick={toggleIsOpen}
@@ -43,7 +43,7 @@ const FAQ = ({ fields }: FAQProps) => {
         )}
       >
         <div className="overflow-hidden">
-          <div className="p-5">{answer}</div>
+          <div className="px-5 pb-5 pt-10">{answer}</div>
         </div>
       </div>
     </div>

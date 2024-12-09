@@ -7,7 +7,6 @@ export const screens = {
   lg: '1024px',
   xl: '1280px',
   '2xl': '1440px',
-  '3xl': '1920px',
 }
 
 export default {
@@ -25,7 +24,6 @@ export default {
         lg: screens.lg,
         xl: screens.xl,
         '2xl': screens['2xl'],
-        '3xl': screens['3xl'],
       },
       colors: {
         background: 'var(--background)',
