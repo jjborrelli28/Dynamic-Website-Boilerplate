@@ -1,5 +1,4 @@
 import type {
-  BlogEntrySkeleton,
   CallToActionEntrySkeleton,
   FeaturesEntrySkeleton,
   FrequentlyAskedQuestionsEntrySkeleton,
@@ -10,7 +9,6 @@ import type {
 } from '@/lib/contentful/getPageData'
 import type { Entry } from 'contentful'
 import DynamicSection from './DynamicSection'
-import type { BlogProps } from './components/Blog'
 import type { CallToActionProps } from './components/CallToAction'
 import type { FeaturesProps } from './components/Features'
 import type { FrequentlyAskedQuestionsProps } from './components/FrenquentlyAskedQuestions'
@@ -20,7 +18,6 @@ import type { SpotlightsProps } from './components/Spotlights'
 import type { TestimonialsProps } from './components/Testimonials'
 
 type Section =
-  | Entry<BlogEntrySkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>
   | Entry<CallToActionEntrySkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>
   | Entry<FeaturesEntrySkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>
   | Entry<
@@ -48,10 +45,6 @@ const SectionFactory = ({ sections }: SectionFactoryProps) => {
     const fields = section.fields
 
     switch (contentTypeId) {
-      case 'blog':
-        return (
-          <DynamicSection.Blog key={i} fields={fields as BlogProps['fields']} />
-        )
       case 'callToAction':
         return (
           <DynamicSection.CallToAction

@@ -80,27 +80,6 @@ type FooterEntrySkeleton = {
 
 // Global components and sections
 
-export type PostEntrySkeleton = {
-  contentTypeId: 'post'
-  fields: {
-    title: EntryFieldTypes.Text
-    slug: EntryFieldTypes.Text
-    excerpt: EntryFieldTypes.Text
-    thumbnail: EntryFieldTypes.AssetLink
-    richText: EntryFieldTypes.RichText
-    publishDate: EntryFieldTypes.Text
-  }
-}
-
-export type BlogEntrySkeleton = {
-  contentTypeId: 'blog'
-  fields: {
-    title: EntryFieldTypes.Text
-    richText: EntryFieldTypes.RichText
-    posts: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<PostEntrySkeleton>>
-  }
-}
-
 export type CallToActionEntrySkeleton = {
   contentTypeId: 'callToAction'
   fields: {
@@ -223,7 +202,6 @@ export type PageEntrySkeleton = {
     metadata?: EntryFieldTypes.EntryLink<MetadataEntrySkeleton>
     header?: EntryFieldTypes.EntryLink<HeaderEntrySkeleton>
     sections?: EntryFieldTypes.Array<
-      | EntryFieldTypes.EntryLink<BlogEntrySkeleton>
       | EntryFieldTypes.EntryLink<CallToActionEntrySkeleton>
       | EntryFieldTypes.EntryLink<FeaturesEntrySkeleton>
       | EntryFieldTypes.EntryLink<FrequentlyAskedQuestionsEntrySkeleton>
